@@ -19,8 +19,16 @@ The newest version is always at {GitHub}[http://github.com/delaitre/redmine_time
 
 == Install
 
-1. Follow the Redmine plugin installation steps at: http://www.redmine.org/wiki/redmine/Plugins Make sure the plugin is installed to <tt>vendor/plugins/redmine_time_tracker</tt>
-2. Setup the database using the migrations. <tt>rake db:migrate_plugins RAILS_ENV=production</tt>
+1. Follow the Redmine plugin installation steps at: 
+   Redmine version 2.0:
+   http://www.redmine.org/wiki/redmine/Plugins Make sure the plugin is installed to <tt>plugins/redmine_time_tracker</tt>
+   < 2.0:
+   http://www.redmine.org/wiki/redmine/Plugins Make sure the plugin is installed to <tt>vendor/plugins/redmine_time_tracker</tt>
+2. Setup the database using the migrations. 
+   Redmine version 2.0:   
+   <tt>rake redmine:plugins:migrate RAILS_ENV=production</tt>
+   < 2.0:
+   <tt>rake db:migrate_plugins RAILS_ENV=production</tt>
 3. Login to your Redmine install as an Administrator
 4. Setup the 'log time' permissions for your roles
 5. Add "Time tracking" to the enabled modules for your project
@@ -29,6 +37,15 @@ The newest version is always at {GitHub}[http://github.com/delaitre/redmine_time
 <b>Note:</b> if you don't see any stop/pause buttons after starting a time tracker, you will need
 to copy <tt>redmine_time_tracker/assets/*</tt> to <tt><redmine_root>/plugin_assets/redmine_time_tracker/</tt>
 or to make a symbolic link <tt><redmine_root>/plugin_assets/redmine_time_tracker</tt> pointing to <tt>redmine_time_tracker/assets</tt>
+
+== Unnstall
+
+1. Setup the database using the migrations. 
+   Redmine version 2.0:   
+   <tt>rake rake redmine:plugins:migrate RAILS_ENV=production NAME=redmine_time_tracker VERSION=0</tt>
+   < 2.0:
+   <tt>rake db:migrate_plugins RAILS_ENV=production NAME=redmine_time_tracker VERSION=0</tt>
+2. Remove folder from plugin directory
 
 == Usage
 
@@ -64,7 +81,12 @@ the 'New' status will automatically change it to 'In progress'.
 === Official release
 
 1. Download the last official release from the {Redmine plugin directory}[HTTP://Www.redmine.org/plugins/redmine_time_tracker]
-2. Replace your old Redmine's <tt>vendor/plugins/redmine_time_tracker</tt> folder with the one contained in the downloaded package
+2. Replace your old Redmine's 
+   Redmine version 2.0:
+   <tt>plugins/redmine_time_tracker</tt> 
+   < 2.0
+   <tt>vendor/plugins/redmine_time_tracker</tt> 
+   folder with the one contained in the downloaded package
 3. Update the database using the migrations. <tt>rake db:migrate_plugins RAILS_ENV=production</tt>
 4. Restart your Redmine
 
@@ -73,8 +95,16 @@ as explained in the _Install_ paragraph above, you will need to update these too
 
 === Git
 
-1. Open a shell to your Redmine's <tt>vendor/plugins/redmine_time_tracker</tt> folder
+1. Open a shell to your Redmine's 
+   Redmine version 2.0:
+   <tt>plugins/redmine_time_tracker</tt> folder
+   < 2.0
+   <tt>vendor/plugins/redmine_time_tracker</tt> folder
 2. Update your git copy with <tt>git pull</tt>
-3. Update the database using the migrations. <tt>rake db:migrate_plugins RAILS_ENV=production</tt>
+3. Update the database using the migrations. 
+   Redmine version 2.0:
+   <tt>rake redmine:plugins:migrate RAILS_ENV=production</tt>
+   < 2.0:
+   <tt>rake db:migrate_plugins RAILS_ENV=production</tt>
 4. Restart your Redmine
 

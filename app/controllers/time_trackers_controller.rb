@@ -15,7 +15,7 @@ class TimeTrackersController < ApplicationController
     @time_tracker = current
     if @time_tracker.nil?
       @issue = Issue.first(:conditions => {:id => params[:issue_id]})
-      @time_tracker = TimeTracker.new({:issue_id => @issue.id})
+      @time_tracker = TimeTracker.new(:issue_id => @issue.id)
 
       if @time_tracker.save
         apply_status_transition(@issue) unless Setting.plugin_redmine_time_tracker[:status_transitions] == nil

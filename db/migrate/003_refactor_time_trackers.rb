@@ -3,8 +3,11 @@ class RefactorTimeTrackers < ActiveRecord::Migration
     drop_table :time_trackers
     create_table :time_trackers do |t|
       t.column :user_id, :integer
+      t.column :issue_id, :integer
       t.column :started_on, :datetime
     end
+    add_column :time_trackers, :time_spent, :float, :default => 0
+    add_column :time_trackers, :paused, :boolean, :default => false
   end
 
   def self.down

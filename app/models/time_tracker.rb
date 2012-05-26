@@ -11,6 +11,8 @@ end
 class TimeTracker < ActiveRecord::Base
   unloadable
   belongs_to :user
+  
+  validates_presence_of :issue_id
 
   def initialize(arguments = nil)
     super(arguments)
